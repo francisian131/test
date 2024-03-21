@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pe ar</title>
+  <style>
+  
+  .btn {
+  border-radius:px;
+  border:none;
+  background-color:inherit;
+  padding:10px 1px;
+  font-size:16px;
+  cursor: pointer;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+  }
+  
+  
+  
+  
+    body {
+      background:#E1D9D1;
+      margin: 0; /* Remove default margin */
+      font-family: Arial, sans-serif; /* Set default font */
+    }
+    
+    nav {
+      position: fixed; /* Make the navigation bar sticky */
+      top: 0;
+      width: 100%;
+      background-color: maroon;
+      padding: 10px;
+      text-align: center;
+      z-index: 1000; 
+    }
+    
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      margin: 0 5px;
+      transition: background-color 0.3s ease;
+    }
+    
+    nav a:hover {
+      background-color: black;
+      border-radius:4px;
+    }
+    
+    input[type="email"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #CCCCCC; /* Light gray */
+    }
+    
+    input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #CCCCCC; /* Light gray */
+    }
+    
+    
+    input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #CCCCCC; /* Light gray */
+    }
+    
+    input[type="password"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #CCCCCC; /* Light gray */
+    }
+    
+    .container {
+      box-shadow: 2px 5px 5px black;
+      background: white;
+      color: black;
+      display: none;
+      margin: 70px auto 20px; /* Adjust margin to accommodate the fixed navigation bar */
+      width: 500px;
+      max-width: 600px;
+      padding: 20px;
+      border: 5px solid white;
+      border-radius: 8px;
+      animation: fadeInOut 0.5s ease-in-out;
+    }
+    
+    @keyframes fadeInOut {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <button class="btn Home"> <a href="#" onclick="toggleContainer('homeContainer')"><b>Home</b></a></button>
+  <button class="btn Enroll"> <a href="#" onclick="toggleContainer('enrollmentForm')"><b>Enroll</b></a></button>
+  <button class="btn Enrolled"> <a href="#" onclick="toggleContainer('enrolledSection')"><b>Enrolled</b></a></button>
+  <button class="btn Me"> <a href="#" onclick="toggleContainer('accountcontainer')"><b>Me</b></a></button>
+  
+</nav>
+
+<div id="enrollmentForm" class="container">
+  <h1 style="font-family:georgia;text-align:center;">Enrollment Form</h1>
+  </br>
+  
+  <form action="studentsInformation.php" method="post">
+    <p 
+    style="
+    background-color: maroon; 
+    color: white; 
+    border-radius: 5px; 
+    text-align:center; font-size: 20px;
+    padding: 7px; 
+    margin: 10px;" 
+    align="justify"><b>Student's information</b></p>
+    
+    </br>
+    </br>
+    
+    <b>
+    <label for="fullname" align="left">Student's fullname</label>
+    <input name="full_name"  type="text" id="fullname" required></br>
+    </br>
+    
+    <label for="email">Email Address</label>    
+    <input name="email_add" type="email" id="email" required></br>
+    </br>
+    
+    <label for="lrn">Learner's Reference Number(LRN)</label></br>
+    <input name="lRN" type="number" id="lrn" required> 
+    </br>
+    </br>
+    
+    <label for="skl">Previous School</label>
+    <input name="previous_school" type="text" id="skl" required> 
+    
+  </br>
+    </br>
+    <label for="Transfer">Type of Enrollment &nbsp</label>
+    <select name="rtansfer" id="transfer" required>
+    <option value="">Select</option>
+    <option value="Normal Enrollment">Normal Enrollment</option>
+    <option value="Repeater">Repeater</option>
+    <option value="Transferee">Transferee</option>
+    </select>  </br> 
+    </br>
+    </br>    
+    
+    <label for="add">School address</label>
+    <input name="school_address" type="text" id="add" required></br>
+    </br>
+    
+    <label for="age">Age</label>
+    <input name="ages" type="number" id="age" required></br>
+    
+    
+    </br>
+    <label for="months">Birthday &nbsp</label>
+    <select name="months" id="months" required>
+    <option value="">Months</option>
+    <option value="January">January</option>
+    <option value="February">February</option>
+    <option value="March">March</option>
+    <option value="April">April</option>
+    <option value="May">May</option>
+    <option value="June">June</option>
+    <option value="July">July</option>
+    <option value="August">August</option>
+    <option value="September">September</option>
+    <option value="October">October</option>
+    <option value="November">November</option>
+    <option value="December">December</option>
+    </select> 
+    <select name="day" id="day" required>
+    <option value="">Day</option>
+    <option value="01">01</option>
+    <option value="02">02</option>
+    <option value="03">03</option>
+    <option value="04">04</option>
+    <option value="05">05</option>
+    <option value="07">07</option>
+    <option value="08">08</option>
+    <option value="09">09</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="31">31</option>
+    </select>
+    <select name="year" id="year" required>
+    <option value="">Year</option>
+    <option value="2024">2024</option>
+    <option value="2023">2023</option>
+    <option value="2022">2022</option>
+    <option value="2021">2021</option>
+    <option value="2020">2020</option>
+    <option value="2019">2019</option>
+    <option value="2018">2018</option>
+    <option value="2017">2017</option>
+    <option value="2016">2016</option>
+    <option value="2015">2015</option>
+    <option value="2014">2014</option>
+    <option value="2013">2013</option>
+    <option value="2012">2012</option>
+    <option value="2011">2011</option>
+    <option value="2010">2010</option>
+    <option value="2009">2009</option>
+    <option value="2008">2008</option>
+    <option value="2007">2007</option>
+    <option value="2006">2006</option>
+    <option value="2005">2005</option>
+    <option value="2004">2004</option>
+    <option value="2003">2003</option>
+    <option value="2002">2002</option>
+    <option value="2001">2001</option>
+    <option value="2000">2000</option>
+    <option value="1999">1999</option>
+    <option value="1998">1998</option>
+    <option value="1997">1997</option>
+    <option value="1996">1996</option>
+    <option value="1995">1995</option>
+    <option value="1994">1994</option>
+    <option value="1993">1993</option>
+    <option value="1992">1992</option>
+    <option value="1991">1991</option>
+    <option value="1990">1990</option>
+    <option value="1989">1989</option>
+    <option value="1988">1988</option>
+    <option value="1987">1987</option>
+    <option value="1986">1986</option>
+    <option value="1985">1985</option>
+    <option value="1984">1984</option>
+    <option value="1983">1983</option>
+    <option value="1982">1982</option>
+    <option value="1981">1981</option>
+    <option value="1980">1980</option>
+    </select>
+    </br>
+    </br>
+    </br>
+    <label for="gender">Gender &nbsp</label>
+    <select name="gender" id="gender" required>
+    <option value="">Select</option>
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+    </select><br><br>
+    
+    </br>
+    <label for="religion">Religion</label>
+    <input name="religion" type="text" id="religion" required></br>
+    </br>
+    
+    <label for="Region">Region &nbsp</label>
+    <select name="region" id="region" required>
+    <option value="">Select</option>
+    <option value="Region I">Region I</option>
+    <option value="Region II">Region II</option>
+    <option value="Region III">Region III</option>
+    <option value="Region IV">Region IV</option>
+    <option value="Region V">Region V</option>
+    <option value="Region VI">Region VI</option>
+    <option value="Region VII">Region VII</option>
+    <option value="Region VIII">Region VIII</option>
+    <option value="Region IX">Region IX</option>
+    <option value="Region X">Region X</option>
+    <option value="Region XI">Region XI</option>
+    <option value="Region XII">Region XII</option>
+    <option value="Region XIII">Region XIII</option>
+    <option value="NCR">NCR</option>
+    <option value="CAR">CAR</option>
+    <option value="Mimaropa">Mimaropa</option>
+    <option value="BARMM">BARMM</option>
+    </select>
+    </br>
+    </br>
+    </br>
+    <label for="adr">Address</label>
+    <input name="adr" type="text" id="adr" required> 
+    </br>
+    </br>
+    
+    <label for="mun">Municipality</label>
+    <input name="muni" type="text" id="mun" required></br>
+    
+    </br>
+    
+    
+    
+    
+    
+    <label for="eth">Ethnicity</label>
+    <input name="ethnicity" type="text" id="eth" required></br>
+    
+     </br>
+    </br>
+    <p style="background-color: maroon; color: white; border-radius: 5px;text-align:center; font-size: 20px; padding: 7px; margin: 10px;" text-align="Justify"><b>Parent's Information</b></p>
+    
+    </br>
+    
+    <label for="papa">■Father's name(Surname ,Firstname , Middle initial) </label> 
+    <input name="father_name" type="text" id="papa" required> </br>
+    
+    
+    <label for="papaeduc">Education &nbsp</label>
+    <select name="papaeduc" id="papaeduc" required>
+    <option value="">Select</option>
+    <option value="None">None</option>
+    <option value="Elementary">Elementary</option>
+    <option value="High School">High School</option>
+    <option value="College">College</option>
+    </select>
+    </br>
+    </br>
+    
+    <label for="oc">Occupation </label> 
+    <input name="father_occupation" type="text" id="oc" required> </br>
+    
+    <label>Full/Part-time &nbsp</label>
+    <select name="PARTFULL" id="PARTFULL">
+    <option value="">Select</option>
+    <option value="Part time">Part time</option>
+    <option value="Full time">Full time</option>
+    </select>
+    </br>
+   </br> 
+    <label for="cp">Cellphone no.</label>
+    <input name="father_phone" type="number" id="cp" required></br>
+    
+    </br>
+    
+    </br>
+    
+    <label for="mama">■Mother's Maiden name(Surname ,Firstname , Middle initial) </label> 
+    <input name="mother_name" type="text" id="mama" required> </br>
+   
+    
+    
+    <label for="mamaeduc">Education &nbsp</label>
+    <select name="mamaeduc" id="mamaeduc" required>
+    <option value="">Select</option>
+    <option value="None">None</option>
+    <option value="Elementary">Elementary</option>
+    <option value="High School">High School</option>
+    <option value="College">College</option>
+    </select>
+    </br>
+    </br>
+    
+    <label for="occ">Occupation </label> 
+    <input name="mother_occupation" type="text" id="occ" required> </br>
+    
+    <label>Full/Part-time &nbsp</label>
+    <select name="fullpart" id="fullpart" required>
+    <option value="">Select</option>
+    <option value="Part time">Part time</option>
+    <option value="Full time">Full time</option>
+    </select>
+    </br>
+    </br>
+     
+     <label for="cell">Cellphone no.</label>
+    <input name="mother_phone" type="number" id="cell" required></br>
+    
+    </br>
+    </br>
+    <p style="background-color: maroon; color: white; border-radius: 5px;text-align:center; font-size: 20px; padding: 7px; margin: 10px;" text-align="Justify"><b>Guardian's Information</b></p>
+    
+    </br>   <label for="gln">■Guradian's name (Surname ,First name ,Middle initial) </label> </br>
+    <input name="guardian_name" type="text" id="gln" required> </br>
+    
+    <label for="edu">Education &nbsp</label>
+    <select name="edu" id="edu" required>
+    <option value="">Select</option>
+    <option value="None">None</option>
+    <option value="Elementary">Elementary</option>
+    <option value="High School">High School</option>
+    <option value="College">College</option>
+    </select>
+    </br>
+    </br>
+    
+    <label for="oocc">Occupation </label> 
+    <input name="guardian_occupation" type="text" id="oocc" required> </br>
+    
+    <label>Full/Part-time &nbsp </label>
+    <select name="timepart" id="timepart" required>
+    <option value="">Select</option>
+    <option value="Part time">Part time</option>
+    <option value="Full time">Full time</option>
+    
+    </select>
+    </br>
+    </br>
+    
+    <label for="occ">Relation </label> 
+    <input name="guardian_relation" type="text" id="Rela" required> </br>
+    
+    
+    <label for="phone">Cellphone no.</label>
+    <input name="guardian_phone" type="number" id="phone" required></br>
+    </br>
+    </br>
+    <p style="background-color: maroon; color: white; border-radius: 5px;text-align:center; font-size: 20px; padding: 7px; margin: 10px;" text-align="Justify"><b>Track/Strand</b></p>
+    </br>         
+    
+    
+    
+    <label for="strand">Select your strand &nbsp</label>
+    <select name="strand" id="strand" required>
+    <option value="">Select</option>
+    <option value="ABM">ABM</option>
+    <option value="STEM">STEM</option>
+    <option value="HUMMS">HUMMS</option>
+    <option value="ICT">ICT</option>
+    <option value="DRESSMAKING">DRESSMAKING</option>
+    <option value="HAIRDRESSING">HAIRDRESSING</option>
+    <option value="FBS">FBS</option>
+    <option value="AS">AS</option>
+    
+    
+    </select></br>
+    </br>
+    
+    <p style="border-style:solid;border-color:maroon;background-color: white; color: black; border-radius: 5px; font-size: 14px; padding: 7px; margin: 10px;" align="Justify">
+    <b>Note: As per DepEd Order No. 55, s.2016 the Final Grade both in Science and Math in Grade 10 of students who wish to enroll in the Science,
+    Technology, Engineering, and Mathematics (STEM) Strand should be 85 and above.</b></p>
+    
+    
+    <br>
+    </br>
+    <p style="background-color: maroon; color: white; border-radius: 5px;text-align:center; font-size: 20px; padding: 7px; margin: 10px;" text-align="Justify"><b>Requirements</b></p>
+    </br>         
+    
+    <label for="Form138">Your Report Card (Form 138)</label></br>
+    <input name="form_138" type="file" id="Form138" accept="image/*" >
+    <br>
+    <br>
+    </br>
+    
+    <label for="Form137">Permanent Record (Form 137)</label></br>
+    <input name="form_137" type="file" id="Form137" accept="image/*" >
+    <br>
+    <br>
+    </br> 
+    
+    <label for="Goodmoral">Certificate of Good Moral</label></br>            
+    <input name="good_moral" type="file" id="Goodmoral" accept="image/*" >
+    <br>
+    <br>
+    </br>
+    
+    <label for="picture">1×1 Colored Id Picture</label></br>          
+    <input name="id_picture" type="file" id="picture"  accept="image/*" >
+    <br>
+    <br>
+    </br>
+    
+    <label for="NSO">Photocopy of NSO Birth Certificate</label>           </br>
+    <input name="birth_cert" type="file" id="NSO" accept="image/*">
+    
+    
+    
+    </br>
+    <br>
+    <br>
+    <br>
+        <center>
+    <button name="save" type="submit" style="background:maroon;border:none;color:white;padding:7px;border-radius:5px;font-size:20px;width:400px;"><b>Submit</b></button>
+    </center>
+  </form>
+</div>
+
+<div id="enrolledSection" class="container">
+ <h2 style="font-family:georgia;">Enrolled Students</h2>
+  
+  <ul id="enrolledData"></ul>
+</div>
+
+<div id="homeContainer" class="container">
+  <center>
+    <img src="Title.jpg" width="460" height="130">
+  
+  </br>
+  </br>
+   <h2 style="font-family:'Brush Script MT', cursive;"><b>Welcome to our website!</b></h2>
+   </br>
+   <p>Please Click the Enroll above</p>
+ </center>
+</div>
+
+<div id="accountcontainer" class="container">
+  <h2 style="font-family:georgia;">Welcome<span id="loggedInUser"></span></h2>
+  </br>
+  <form id="loginForm" onsubmit="login(event)">
+  
+  <b>
+   <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required><br>
+    </b>
+    
+    </br>
+    <center>
+    <button type="submit" style="background:maroon;border:none;color:white;padding:7px;border-radius:5px;font-size:20px;width:400px;"><b>Login</b></button>
+    </button>
+  </form>
+  <button id="logoutBtn" style="display: none;" onclick="logout()">Log Out</button>
+</div>
+
+<script>
+  // JavaScript function to toggle the visibility of containers
+  function toggleContainer(containerId) {
+    var containers = ['enrollmentForm', 'enrolledSection', 'homeContainer', 'accountcontainer'];
+    var isLoggedIn = checkLoginStatus(); // Function to check login status
+
+    containers.forEach(function (container) {
+      var element = document.getElementById(container);
+      if (container === containerId) {
+        if (containerId === 'enrolledSection' && !isLoggedIn) {
+          alert('Please log in to view this section.');
+        } else {
+          element.style.display = 'block';
+        }
+      } else {
+        element.style.display = 'none';
+      }
+    });
+  }
+
+  function submitForm(event) {
+    event.preventDefault();
+
+    var lastName = document.getElementById('lastName').value;
+    var firstName = document.getElementById('firstName').value;
+    var middleName = document.getElementById('middleName').value;
+    var grade = document.getElementById('grade').value;
+
+    var enrolledData = document.getElementById('enrolledData');
+    var listItem = document.createElement('li');
+    listItem.textContent = firstName + ' ' + middleName.charAt(0) + '. ' + lastName + ' - Grade: ' + grade;
+    enrolledData.appendChild(listItem);
+
+    document.getElementById('lastName').value = '';
+    document.getElementById('firstName').value = '';
+    document.getElementById('middleName').value = '';
+    document.getElementById('grade').value = '';
+  }
+
+  function login(event) {
+    event.preventDefault();
+
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+    if (username === 'admin' && password === 'admin') {
+      alert('Login successful!');
+      document.getElementById('loggedInUser').textContent = username; // Display logged-in username
+      document.getElementById('loginForm').reset(); // Clear input fields
+      document.getElementById('loginForm').style.display = 'none'; // Hide login form
+      document.getElementById('logoutBtn').style.display = 'block'; // Display logout button
+      toggleContainer('homeContainer'); // Redirect to home page after login
+    } else {
+      alert('Invalid username or password. Please try again.');
+    }
+  }
+
+  function logout() {
+    document.getElementById('loggedInUser').textContent = ''; // Clear logged-in username
+    document.getElementById('logoutBtn').style.display = 'none'; // Hide logout button
+    document.getElementById('loginForm').style.display = 'block'; // Display login form
+    toggleContainer('homeContainer'); 
+  }
+
+  function checkLoginStatus() {
+    // Implement your login status check logic here
+    var isLoggedIn = document.getElementById('loggedInUser').textContent !== ''; // Example logic, replace it with your actual logic
+    return isLoggedIn;
+  }
+  function submitForm(event) {
+    event.preventDefault();
+
+    // Retrieve all input values from the form for student's information
+    var fullName = document.getElementById('fullname').value;
+    var email = document.getElementById('email').value;
+    var lrn = document.getElementById('lrn').value;
+    var previousSchool = document.getElementById('skl').value;
+    var enrollmentType = document.getElementById('transfer').value;
+    var schoolAddress = document.getElementById('add').value;
+    var age = document.getElementById('age').value;
+    var birthday = document.getElementById('months').value + ' ' +
+                  document.getElementById('day').value + ', ' +
+                  document.getElementById('year').value;
+    var gender = document.getElementById('gender').value;
+    var religion = document.getElementById('religion').value;
+    var region = document.getElementById('region').value;
+    var address = document.getElementById('adr').value;
+    var municipality = document.getElementById('mun').value;
+    var ethnicity = document.getElementById('eth').value;
+    var strand = document.getElementById('strand').value; // New: Retrieve selected strand
+
+    // Retrieve all input values from the form for guardian's information
+    var guardianName = document.getElementById('gln').value;
+    var guardianEducation = document.getElementById('edu').value;
+    var guardianOccupation = document.getElementById('oocc').value;
+    var guardianWorkType = document.getElementById('timepart').value;
+    var guardianRelation = document.getElementById('Rela').value;
+    var guardianPhone = document.getElementById('phone').value;
+    
+    // Construct a string containing student's information
+    var studentInfo =  fullName + "'s Information: <br>" +
+                      "Name: " + fullName + "<br>" +
+                      "Email: " + email + "<br>" +
+                      "LRN: " + lrn + "<br>" +
+                      "Previous School: " + previousSchool + "<br>" +
+                      "Enrollment Type: " + enrollmentType + "<br>" +
+                      "School Address: " + schoolAddress + "<br>" +
+                      "Age: " + age + "<br>" +
+                      "Birthday: " + birthday + "<br>" +
+                      "Gender: " + gender + "<br>" +
+                      "Religion: " + religion + "<br>" +
+                      "Region: " + region + "<br>" +
+                      "Address: " + address + "<br>" +
+                      "Municipality: " + municipality + "<br>" +
+                      "Ethnicity: " + ethnicity + "<br>" +
+                      "Strand: " + strand + "<br>"; // New: Include selected strand
+
+    // Construct a string containing guardian's information
+    var guardianInfo = "Guardian's Information: <br>" +
+                       "Name: " + guardianName + "<br>" +
+                       "Education: " + guardianEducation + "<br>" +
+                       "Occupation: " + guardianOccupation + "<br>" +
+                       "Work Type: " + guardianWorkType + "<br>" +
+                       "Relation: " + guardianRelation + "<br>" +
+                       "Phone: " + guardianPhone + "<br>";
+
+    // Combine student's and guardian's information
+    var enrolledInfo = studentInfo + "<br>" + guardianInfo;
+
+    // Display the combined information in the "Enrolled Students" section
+    var enrolledData = document.getElementById('enrolledData');
+    var listItem = document.createElement('li');
+    listItem.innerHTML = enrolledInfo;
+    enrolledData.appendChild(listItem);
+
+    // Clear form inputs for student's information
+    document.getElementById('fullname').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('lrn').value = '';
+    document.getElementById('skl').value = '';
+    document.getElementById('transfer').selectedIndex = 0;
+    document.getElementById('add').value = '';
+    document.getElementById('age').value = '';
+    document.getElementById('months').selectedIndex = 0;
+    document.getElementById('day').selectedIndex = 0;
+    document.getElementById('year').selectedIndex = 0;
+    document.getElementById('gender').selectedIndex = 0;
+    document.getElementById('religion').value = '';
+    document.getElementById('region').selectedIndex = 0;
+    document.getElementById('adr').value = '';
+    document.getElementById('mun').value = '';
+    document.getElementById('eth').value = '';
+    document.getElementById('strand').selectedIndex = 0; // New: Reset selected strand
+
+    // Clear form inputs for guardian's information
+    document.getElementById('gln').value = '';
+    document.getElementById('edu').value = '';
+    document.getElementById('oocc').value = '';
+    document.getElementById('timepart').selectedIndex = 0;
+    document.getElementById('Rela').value = '';
+    document.getElementById('phone').value = '';
+
+    // Display alert for enrollment success
+    alert("Enroll success!");
+}
+
+</script>
+
+<script>
+  // Initially display the home container
+  document.getElementById('homeContainer').style.display = 'block';
+</script>
+
+</body>
+</html>
